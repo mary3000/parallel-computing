@@ -4,6 +4,7 @@
  *
  * @author Mary Feofanova
  */
+
 #include <stdio.h>
 #include <mpi.h>
 #include <string.h>
