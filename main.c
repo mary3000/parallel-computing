@@ -62,12 +62,14 @@ int main(int argc, char **argv) {
     if (my_rank == 0) {
         long proc_sum = 0;
         long sum = my_sum;
+
         printf("Sum of process %d is: %ld\n", 0, my_sum);
         for (int other_rank = 1; other_rank < num_procs; other_rank++) {
             MPI_Recv(&proc_sum, 1, MPI_LONG, other_rank, 0, MPI_COMM_WORLD, &status);
             sum += proc_sum;
             printf("Sum of process %d is: %ld\n", other_rank, proc_sum);
         }
+
         printf("Total locally computed sum: %ld\n", local_sum);
         printf("Total parallel sum: %ld\n", sum);
         printf("Difference between computations: %ld\n", local_sum - sum);
