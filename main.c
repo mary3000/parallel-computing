@@ -48,8 +48,8 @@ int main(int argc, char **argv) {
 
     // Compute array chunk locally
     long my_sum = 0;
-    int count = my_rank == 0 ? N : offset + chunk;
-    for (int i = offset; i < count; i++) {
+    int end = my_rank == 0 ? N : offset + chunk;
+    for (int i = offset; i < end; i++) {
         my_sum += a[i];
     }
 
